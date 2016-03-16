@@ -1,0 +1,26 @@
+{% extends 'alumno/base.html'%}
+
+{% block title%} Lista alumnos {% endblock %}
+
+{% block content %}
+
+<a href="/alumno/add/" class="btn btn-success"> Crear alumno</a>
+{% if alumnos %}
+	{% for alumno in alumnos %}
+		<p>{{ alumno.id  }}
+			{{ alumno.nombre  }}
+			{{ alumno.apellidos  }}
+			{{ alumno.edad  }}
+			{{ alumno.activo  }}
+
+			<a href="/alumno/edit/{{ alumno.id }}/">Editar</a>
+			<a href="/alumno/del/{{ alumno.id }}">Eliminar</a>
+
+
+			</p>
+	{% endfor %}
+	{% else %}
+<h1>No hay alumnos</h1>
+{% endif %}
+
+{% endblock %}
